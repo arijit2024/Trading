@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login logout section start  -->
+    <section class="login-wrapper">
+        <div class="container">
+            <div class="login-part">
+                <form>
+                    <input type="text" class="inputFild" id="user-trading">
+                    <input type="text" class="inputFild" id="password-trading">
+                    <button class="submit-login" id="submit-trading">Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Login logout section end  -->
+    <script>
+
+        $("#submit-trading").click(function(event){
+            event.preventDefault(); 
+
+            const userTrading = $("#user-trading").val();
+            const passwordTrading = $("#password-trading").val(); 
+
+            const api_url = "../back-end/server.php";
+            $.post(api_url, {
+                method: "ourUser",
+                user: userTrading, 
+                password: passwordTrading 
+            }, function(data){
+                if(data){
+                    window.location.href ="index.html";
+                }
+            });
+        });
+
+    </script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
