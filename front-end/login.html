@@ -12,25 +12,32 @@
     <!-- Login logout section start  -->
     <section class="login-wrapper">
         <div class="container">
-            <div class="login-part">
+            <div class="logout-part">
+                <form>
+                    <input type="number" class="inputFild" id="number-trading" placeholder="Enter number">
+                    <input type="text" class="inputFild" id="password-trading" placeholder="Enter password">
+                    <input type="text" class="inputFild" id="password-ree-trading" placeholder="Enter reenter password">
+                    <button class="submit-button" id="register-trading">Register</button>
+                </form>
+            </div>
+            <!-- <div class="login-part">
                 <form>
                     <input type="text" class="inputFild" id="user-trading">
                     <input type="text" class="inputFild" id="password-trading">
-                    <button class="submit-login" id="submit-trading">Login</button>
+                    <button class="submit-button" id="login-trading">Login</button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- Login logout section end  -->
     <script>
-
-        $("#submit-trading").click(function(event){
+        $(document).ready(function() {
+        // login 
+        const api_url = "../back-end/server.php";
+        $("#login-trading").click(function(event){
             event.preventDefault(); 
-
             const userTrading = $("#user-trading").val();
             const passwordTrading = $("#password-trading").val(); 
-
-            const api_url = "../back-end/server.php";
             $.post(api_url, {
                 method: "ourUser",
                 user: userTrading, 
@@ -38,6 +45,32 @@
             }, function(data){
                 if(data){
                     window.location.href ="index.html";
+                }
+            });
+        });
+        // logout
+            $("#register-trading").click(function(event) {
+                event.preventDefault();
+                const numberUser = $("#number-trading").val();
+                const passUser = $("#password-trading").val();
+                const passUserRee = $("#password-ree-trading").val();
+                
+                if (passUser === passUserRee && passUser != "" && passUserRee != "") {
+                    $("#password-trading").removeClass('borderAdd'); 
+                    $("#password-ree-trading").removeClass('borderAdd'); 
+                    $.post(api_url, {
+                        method: "register",
+                        numberUser: numberUser,
+                        passUser: passUser,
+                        passUserRee: passUserRee
+                    }, function(data) {
+                        if(data){
+                            window.location.href ="index.html";
+                        }
+                    });
+                } else {
+                    $("#password-trading").addClass('borderAdd'); 
+                    $("#password-ree-trading").addClass('borderAdd'); 
                 }
             });
         });

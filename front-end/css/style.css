@@ -41,3 +41,6 @@
     gap: 1rem;
     justify-content: center;
 }
+.borderAdd {
+    border: 1px solid red;
+}
