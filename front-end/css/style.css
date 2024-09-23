@@ -170,6 +170,30 @@ background-color:#000000;
     float: right;
     background: #e2e2e2;
     width: 98%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-wrapper input{
+    width: 300px;
+    height: 40px;
+    border: 2px solid darkblue;
+    border-radius: 6px;
+    outline: none;
+}
+.area .submit{
+    padding: 9px 40px;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+    margin-top: 24px;
 }
 @font-face {
   font-family: 'Titillium Web';
