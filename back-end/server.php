@@ -26,6 +26,19 @@ if ($method === "ourUser") {
     }else{
         echo "Not Succcess";
     }
+} else if($method === "dataOne"){
+    $entry = isset($_POST['entry']) ? $_POST['entry'] : '';
+    $stoploss = isset($_POST['stoploss']) ? $_POST['stoploss'] : '';
+    $exit = isset($_POST['exit']) ? $_POST['exit'] : '';
+    $profit = isset($_POST['profit']) ? $_POST['profit'] : '';
+    $loss = isset($_POST['loss']) ? $_POST['loss'] : '';
+
+    $sql = mysqli_query($con, "INSERT INTO dataone(entry, stoploss, exits, profit, loss) VALUES ('$entry','$stoploss','$exit','$profit','$loss')");
+    if($sql){
+        echo "Succcess";
+    }else{
+        echo "Not Succcess";
+    }
 } 
 else {
     echo "Invalid method";
