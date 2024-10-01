@@ -14,11 +14,11 @@
     <div class="area">
         <div class="main-fild">
             <div class="input-wrapper">
-                <input type="number" id="entry" placeholder="Your Entry">
-                <input type="number" id="stoploss" placeholder="Your Stop Loss">
-                <input type="number" id="exit" placeholder="Your Exit">
-                <input type="number" id="profit" placeholder="Your Profit">
-                <input type="number" id="loss" placeholder="Your Loss">
+                <input type="number" id="entry" class="fildAll" placeholder="Your Entry">
+                <input type="number" id="stoploss" class="fildAll" placeholder="Your Stop Loss">
+                <input type="number" id="exit" class="fildAll" placeholder="Your Exit">
+                <input type="number" id="profit" class="fildAll" placeholder="Your Profit">
+                <input type="number" id="loss" class="fildAll" placeholder="Your Loss">
             </div>
             <button class="submit" id="submit-data">Submit</button>
         </div>
@@ -56,29 +56,9 @@
         </ul>
     </nav>
     <script>
-        $(document).ready(function(){
-            const api_url = "../back-end/server.php";
-            $("#submit-data").click(function(event){
-                const entry = $("#entry").val();
-                const stoploss = $("#stoploss").val();
-                const exit = $("#exit").val();
-                const profit = $("#profit").val();
-                const loss = $("#loss").val();
-
-                $.post(api_url, {
-                    method : "dataOne",
-                    entry : entry,
-                    stoploss : stoploss,
-                    exit : exit,
-                    profit : profit,
-                    loss : loss
-                }, function(data){
-                    console.log(data);
-                })
-
-            })
-        })
+       
     </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
